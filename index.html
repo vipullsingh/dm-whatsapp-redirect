@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Send Message on WhatsApp</title>
+  <style>
+    body {
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+  margin: 0;
+  padding: 20px;
+}
+
+.container {
+  max-width: 400px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+label {
+  display: block;
+  margin-top: 10px;
+  color: #333;
+}
+
+input[type="text"] {
+  width: 20%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  margin-top: 20px;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+button:active {
+  background-color: #3e8e41;
+}
+
+.alert {
+  margin-top: 20px;
+  padding: 10px;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.alert-success {
+  background-color: #4CAF50;
+}
+
+.alert-error {
+  background-color: #f44336;
+}
+
+  </style>
+</head>
+<body>
+  <h1>Send Message on WhatsApp</h1>
+  
+  <label for="number">Mobile Number:</label>
+  <input type="text" id="number" placeholder="Enter mobile number">
+  
+  <button onclick="sendMessage()">Send Message</button>
+  
+  <script>
+    function sendMessage() {
+      var number = document.getElementById("number").value;
+      
+      // Format the mobile number by removing any non-digit characters
+      number = number.replace(/\D/g, '');
+      
+      // Check if the number is valid
+      if (number.length > 0) {
+        // Create the WhatsApp URL with the number and message
+        var url = "https://wa.me/" + number;
+        
+        // Open the WhatsApp URL in a new tab
+        window.open(url);
+      } else {
+        alert("Please enter a valid mobile number.");
+      }
+    }
+  </script>
+</body>
+</html>
